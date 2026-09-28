@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | SD Traders</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">⚡ SD TRADERS</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="products.html">Products</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="cart.html">Cart</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="order.php">Order</a>
+        <a href="feedback.php">Feedback</a>
+        <a href="contact.php">Contact</a>
+    </nav>
+</header>
+
+<section class="page-title">
+    <h1>Our Products</h1>
+    <p>Choose your favourite electric toy</p>
+</section>
+
+<section class="products">
+    <div class="product">
+        <div class="product-img">🚗</div>
+        <h2>Electric Racing Car</h2>
+        <p>High-speed battery operated toy car.</p>
+        <h3>₹1,499</h3>
+        <button onclick="addToCart('Electric Racing Car', 1499)" class="btn" style="background:#2563eb; margin-bottom:8px; display:inline-block;">Add to Cart</button>
+        <a href="order.php?product=Electric%20Racing%20Car&quantity=1" class="btn">Order Now</a>
+    </div>
+
+    <div class="product">
+        <div class="product-img">⚽</div>
+        <h2>Hover Ball</h2>
+        <p>Interactive and entertaining hover ball.</p>
+        <h3>₹520</h3>
+        <button onclick="addToCart('Hover Ball', 520)" class="btn" style="background:#2563eb; margin-bottom:8px; display:inline-block;">Add to Cart</button>
+        <a href="order.php?product=Hover%20Ball&quantity=1" class="btn">Order Now</a>
+    </div>
+
+    <div class="product">
+        <div class="product-img">🚁</div>
+        <h2>RC Helicopter</h2>
+        <p>Remote controlled flying helicopter.</p>
+        <h3>₹1,799</h3>
+        <button onclick="addToCart('RC Helicopter', 1799)" class="btn" style="background:#2563eb; margin-bottom:8px; display:inline-block;">Add to Cart</button>
+        <a href="order.php?product=RC%20Helicopter&quantity=1" class="btn">Order Now</a>
+    </div>
+
+    <div class="product">
+        <div class="product-img">🚗</div>
+        <h2>RC Drift Car</h2>
+        <p>Mini battery-operated car for kids.</p>
+        <h3>₹1,870</h3>
+        <button onclick="addToCart('RC Drift Car', 1870)" class="btn" style="background:#2563eb; margin-bottom:8px; display:inline-block;">Add to Cart</button>
+        <a href="order.php?product=RC%20Drift%20Car&quantity=1" class="btn">Order Now</a>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 SD Traders | Electric Toys</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

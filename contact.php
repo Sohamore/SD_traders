@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | SD Traders</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">⚡ SD TRADERS</div>
+    <nav>
+       <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="products.html">Products</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="cart.html">Cart</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="order.php">Order</a>
+        <a href="feedback.php">Feedback</a>
+        <a href="contact.php">Contact</a>
+    </nav>
+</header>
+
+<section class="page-title">
+    <h1>Contact Us</h1>
+</section>
+
+<section class="contact">
+    <div class="contact-box">
+        <h2>📍 Address</h2>
+        <p>SD Traders, Maharashtra, India</p>
+    </div>
+
+    <div class="contact-box">
+        <h2>📞 Phone</h2>
+        <p>+91 98765 43210</p>
+    </div>
+
+    <div class="contact-box">
+        <h2>📧 Email</h2>
+        <p>sdtraders@example.com</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 SD Traders | Electric Toys</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews | SD Traders</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .section {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-top: 15px;
+            margin-bottom: 35px;
+            border: 1px solid #cbd5e1;
+        }
+
+        .reviews-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 15px;
+        }
+
+        .reviews-table th {
+            background-color: #111827;
+            color: #ffffff;
+            padding: 14px 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #2563eb;
+            text-align: left;
+        }
+
+        .reviews-table td {
+            padding: 16px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: middle;
+            color: #334155;
+            text-align: left;
+        }
+
+        .reviews-table tbody tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .reviews-table tbody tr:hover {
+            background-color: #f1f5f9;
+        }
+
+        .reviewer-name {
+            font-weight: bold;
+            color: #0f172a;
+            font-size: 16px;
+            white-space: nowrap;
+            text-align: left;
+        }
+
+        .stars {
+            color: #f59e0b;
+            font-size: 1.25rem;
+            letter-spacing: 2px;
+            white-space: nowrap;
+            text-align: left;
+        }
+
+        .review-text {
+            line-height: 1.6;
+            color: #334155;
+            text-align: left;
+        }
+
+        .review-photo img {
+            width: 130px;
+            height: 85px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            display: block;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .no-photo {
+            color: #94a3b8;
+            font-style: italic;
+        }
+
+        .review-form-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .review-form-container h2 {
+            margin-bottom: 20px;
+            color: #111827;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">⚡ SD TRADERS</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="products.html">Products</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="cart.html">Cart</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="order.php">Order</a>
+        <a href="feedback.php">Feedback</a>
+        <a href="contact.php">Contact</a>
+    </nav>
+</header>
+
+<section class="page-title">
+    <h1>Customer Reviews</h1>
+    <p>See what our customers are saying about our electric toys</p>
+</section>
+
+<main style="padding: 40px 8%;">
+    <section class="section" aria-labelledby="customer-reviews-heading">
+        <h2 id="customer-reviews-heading" style="text-align: center; margin-bottom: 25px; font-size: 28px; color: #111827;">What Our Buyers Say</h2>
+
+        <div class="table-responsive">
+            <table class="reviews-table">
+                <thead>
+                    <tr>
+                        <th>Customer Name</th>
+                        <th>Rating</th>
+                        <th>Review Comment</th>
+                        <th>Product Photo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="reviewer-name">Shalaka More</td>
+                        <td><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div></td>
+                        <td class="review-text">The car is fast and fun to play with. The remote control works smoothly, and the build quality is good.</td>
+                        <td class="review-photo"><img src="images/drift car.jpeg" alt="Remote-control drift car"></td>
+                    </tr>
+                    <tr>
+                        <td class="reviewer-name">Sanskar Mohite</td>
+                        <td><div class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</div></td>
+                        <td class="review-text">I am totally satisfied with the purchase. The design is attractive and enjoyable to use. A great electric toy for kids.</td>
+                        <td class="review-photo"><img src="images/racing car.jpeg" alt="Remote-control racing car"></td>
+                    </tr>
+                    <tr>
+                        <td class="reviewer-name">Gauri Pawar</td>
+                        <td><div class="stars" role="img" aria-label="4 out of 5 stars">★★★★☆</div></td>
+                        <td class="review-text">Amazing toys. My kids love playing with them!</td>
+                        <td class="review-photo"><span class="no-photo">—</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="review-form-container" aria-labelledby="leave-review-heading">
+        <h2 id="leave-review-heading">Leave Your Review</h2>
+
+        <form action="reviews.php" method="POST">
+            <label for="name">Your name</label>
+            <input type="text" name="name" id="name" autocomplete="name" required>
+
+            <label for="rating">Rating (1–5)</label>
+            <input type="number" name="rating" id="rating" min="1" max="5" step="1" required>
+
+            <label for="message">Your review</label>
+            <textarea name="message" id="message" rows="5" required></textarea>
+
+            <button type="submit" class="btn">Submit Review</button>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 SD Traders | Electric Toys</p>
+</footer>
+
+<script src="js/reviews.js" defer></script>
+</body>
+</html>

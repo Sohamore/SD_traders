@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart | SD Traders</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #eaf6ff, #ffffff);
+            color: #222;
+            min-height: 100vh;
+        }
+
+
+
+        /* ===== CART SECTION ===== */
+        .cart-section {
+            min-height: 500px;
+            padding: 55px 40px;
+        }
+
+        .cart-title {
+            text-align: center;
+            background:#dbeafe;
+            padding:55px 20px;
+            margin:-55px -40px 35px -40px;
+            
+        }
+
+        .cart-title h1 {
+            font-size: 42px;
+            color:#040405;
+            margin-bottom: 10px;
+        }
+
+        .cart-title p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* ===== CART BOX ===== */
+        .cart-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 35px;
+            border: 2px solid #d9dde5;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .cart-container h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        #cartItems {
+            min-height: 100px;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 35px;
+            color: #666;
+            font-size: 18px;
+        }
+
+        /* ===== BUTTONS ===== */
+        button {
+            border: none;
+            border-radius: 8px;
+            padding: 13px 22px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .clear-btn {
+            background: #ddd;
+            color: #222;
+        }
+
+        .clear-btn:hover {
+            background: #bbb;
+        }
+
+        .order-btn {
+            background: #ff6b35;
+            color: white;
+        }
+
+        .order-btn:hover {
+            background: #e85525;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #10172f;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 800px) {
+
+            header {
+                height: auto;
+                padding: 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 14px;
+            }
+
+            .cart-section {
+                padding: 35px 15px;
+            }
+
+            .cart-title h1 {
+                font-size: 32px;
+            }
+
+            .cart-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">⚡ SD TRADERS</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="products.html">Products</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="cart.html">Cart</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="order.php">Order</a>
+        <a href="feedback.php">Feedback</a>
+        <a href="contact.php">Contact</a>
+    </nav>
+</header>
+
+
+    <!-- CART -->
+    <section class="cart-section">
+
+        <div class="cart-title">
+            <h1>🛒 Your Shopping Cart</h1>
+            <p>Review your selected electric toys</p>
+        </div>
+
+        <div class="cart-container">
+
+            <h2>Items in Your Cart</h2>
+
+            <div id="cartItems">
+                <div class="empty-cart">
+                    Your cart is empty.
+                </div>
+            </div>
+
+            <br>
+
+            <button class="clear-btn" onclick="clearCart()">
+                Clear Cart
+            </button>
+
+            <button class="order-btn" onclick="proceedToOrder()">
+                Confirm Order
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        2026 SD Traders | Electric Toys
+    </footer>
+
+
+    <script>
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let container = document.getElementById("cartItems");
+            
+            if (cart.length === 0) {
+                container.innerHTML = '<div class="empty-cart">Your cart is currently empty.<br><br><a href="products.html" class="btn">Explore Products</a></div>';
+                return;
+            }
+
+            let html = `
+                <table style="width:100%; border-collapse:collapse; margin-top:10px; text-align:left;">
+                    <thead>
+                        <tr style="background:#111827; color:white;">
+                            <th style="padding:12px;">Customer</th>
+                            <th style="padding:12px;">Product</th>
+                            <th style="padding:12px;">Price</th>
+                            <th style="padding:12px;">Quantity</th>
+                            <th style="padding:12px;">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            let grandTotal = 0;
+            cart.forEach((item) => {
+                let subtotal = item.price * item.quantity;
+                grandTotal += subtotal;
+                let customerInfo = item.customerName ? `${item.customerName}<br><small style="color:#64748b;">${item.customerEmail || ''}</small>` : 'Guest';
+                html += `
+                    <tr style="border-bottom:1px solid #e2e8f0;">
+                        <td style="padding:12px; font-weight:bold; color:#0f172a;">${customerInfo}</td>
+                        <td style="padding:12px; font-weight:bold; color:#2563eb;">${item.name}</td>
+                        <td style="padding:12px;">₹${item.price}</td>
+                        <td style="padding:12px;">${item.quantity}</td>
+                        <td style="padding:12px; font-weight:bold; color:#15803d;">₹${subtotal}</td>
+                    </tr>
+                `;
+            });
+
+            html += `
+                    </tbody>
+                </table>
+                <div style="text-align:right; margin-top:15px; font-size:20px; font-weight:bold; color:#111827;">
+                    Total Amount: ₹${grandTotal}
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        function clearCart() {
+            localStorage.removeItem("cart");
+            loadCart();
+        }
+
+        function proceedToOrder() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            if (cart.length === 0) {
+                alert("Your cart is empty! Please add or order a product first.");
+                window.location.href = "products.html";
+                return;
+            }
+
+            let firstItem = cart[0];
+            let name = firstItem.customerName || "Customer";
+            let email = firstItem.customerEmail || "your email";
+            let grandTotal = cart.reduce((acc, curr) => acc + (curr.price * curr.quantity), 0);
+
+            let container = document.getElementById("cartItems");
+            container.innerHTML = `
+                <div class="success" style="margin-top:10px; text-align:center; padding:30px; border-radius:12px; background:#dcfce7; border:2px solid #86efac;">
+                    <h2 style="color:#166534; font-size:32px; margin-bottom:10px;">🎉 Order Confirmed!</h2>
+                    <p style="font-size:20px; color:#15803d; font-weight:bold;">Thank you <u>${name}</u> for your purchase!</p>
+                    <p style="font-size:16px; color:#166534; margin-top:12px; line-height:1.6;">
+                        Your order totaling <b>₹${grandTotal}</b> has been successfully processed.<br>
+                        We will contact you at <b>${email}</b> with shipping details.
+                    </p>
+                    <br>
+                    <a href="products.html" class="btn" style="background:#166534;">Continue Shopping</a>
+                </div>
+            `;
+
+            localStorage.removeItem("cart");
+        }
+
+        window.addEventListener("DOMContentLoaded", loadCart);
+    </script>
+
+</body>
+</html>
