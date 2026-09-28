@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reviews | SD Traders</title>
+    <title>Contact | SD Traders</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -24,32 +24,30 @@
 </header>
 
 <section class="page-title">
-    <h1>Review Submitted</h1>
+    <h1>Contact Us</h1>
 </section>
 
-<section class="form-container">
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = htmlspecialchars($_POST["name"] ?? "");
-    $rating = htmlspecialchars($_POST["rating"] ?? "");
-    $message = htmlspecialchars($_POST["message"] ?? "");
+<section class="contact">
+    <div class="contact-box">
+        <h2>📍 Address</h2>
+        <p>SD Traders, Maharashtra, India</p>
+    </div>
 
-    echo "<div class='card'>";
-    echo "<h2>Thank You!</h2>";
-    echo "<p>Thank you <b>$name</b> for sharing your review.</p>";
-    echo "<p>Your rating: $rating / 5</p>";
-    echo "<p>Your review: $message</p>";
-    echo "</div>";
-} else {
-    echo "<p>Please submit the review form first.</p>";
-}
-?>
-    <a href="reviews.html" class="btn">Return to Reviews</a>
+    <div class="contact-box">
+        <h2>📞 Phone</h2>
+        <p>+91 98765 43210</p>
+    </div>
+
+    <div class="contact-box">
+        <h2>📧 Email</h2>
+        <p>sdtraders@example.com</p>
+    </div>
 </section>
 
 <footer>
     <p>© 2026 SD Traders | Electric Toys</p>
 </footer>
 
+<script src="js/script.js"></script>
 </body>
 </html>

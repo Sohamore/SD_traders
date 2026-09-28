@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback | SD Traders</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">⚡ SD TRADERS</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="products.html">Products</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="cart.html">Cart</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="order.html">Order</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="page-title">
+    <h1>Customer Feedback</h1>
+</section>
+
+<section class="form-container">
+
+    <div id="successMsg" style="display:none;" class="success">
+        <h2>🙏 Thank You!</h2>
+        <p id="successText"></p>
+        <a href="index.html" class="btn" style="margin-top:12px; display:inline-block;">Back to Home</a>
+    </div>
+
+    <form id="feedbackForm" onsubmit="return submitFeedback(event)">
+        <label>Your Name</label>
+        <input type="text" name="name" id="name" required>
+
+        <label>Rating</label>
+        <select name="rating" id="rating" required>
+            <option value="">Select Rating</option>
+            <option value="5">⭐⭐⭐⭐⭐ (5 - Excellent)</option>
+            <option value="4">⭐⭐⭐⭐ (4 - Good)</option>
+            <option value="3">⭐⭐⭐ (3 - Average)</option>
+            <option value="2">⭐⭐ (2 - Poor)</option>
+            <option value="1">⭐ (1 - Bad)</option>
+        </select>
+
+        <label>Your Feedback</label>
+        <textarea name="message" id="message" rows="6" required></textarea>
+
+        <button type="submit" class="btn">Submit Feedback</button>
+    </form>
+
+</section>
+
+<footer>
+    <p>© 2026 SD Traders | Electric Toys</p>
+</footer>
+
+<script>
+    function submitFeedback(e) {
+        e.preventDefault();
+
+        let name = document.getElementById("name").value.trim();
+        let rating = document.getElementById("rating").value;
+        let message = document.getElementById("message").value.trim();
+
+        if (!name) { alert("Please enter your name."); return false; }
+        if (!rating) { alert("Please select a rating."); return false; }
+        if (!message) { alert("Please write your feedback."); return false; }
+
+        document.getElementById("feedbackForm").style.display = "none";
+        document.getElementById("successMsg").style.display = "block";
+        document.getElementById("successText").innerHTML =
+            `Thank you <b>${name}</b> for your feedback!<br>Your rating: <b>${rating}/5</b><br>Message: "${message}"`;
+
+        return false;
+    }
+</script>
+</body>
+</html>
