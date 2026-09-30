@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SD Traders | Project Documentation</title>
+    <style>
+        :root {
+            --ink: #172331;
+            --muted: #526273;
+            --blue: #155e75;
+            --pale: #eaf4f5;
+            --line: #cbd5dc;
+            --paper: #fff;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            background: #e8edf0;
+            color: var(--ink);
+            font: 15px/1.55 Georgia, "Times New Roman", serif;
+        }
+        .document { width: min(210mm, 100%); margin: 20px auto; }
+        .sheet {
+            position: relative;
+            min-height: 297mm;
+            padding: 22mm 20mm;
+            margin: 0 0 18px;
+            overflow: hidden;
+            background: var(--paper);
+            box-shadow: 0 4px 22px #18212b1a;
+            page-break-after: always;
+            break-after: page;
+        }
+        .sheet:last-child { page-break-after: auto; break-after: auto; }
+        h1, h2, h3, p { margin-top: 0; }
+        h1, h2, h3 { font-family: "Segoe UI", Arial, sans-serif; line-height: 1.2; }
+        h1 { font-size: 34px; }
+        h2 { margin-bottom: 14px; color: var(--blue); font-size: 25px; }
+        h3 { margin: 19px 0 7px; font-size: 17px; }
+        p, li { color: #263646; }
+        a { color: var(--blue); overflow-wrap: anywhere; }
+        .eyebrow { color: var(--blue); font: bold 12px/1.4 "Segoe UI", Arial, sans-serif; letter-spacing: 1.3px; text-transform: uppercase; }
+        .cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(145deg, #f5fbfb 0%, #e7f1f3 58%, #fff 58%);
+        }
+        .cover-mark { margin-bottom: 26px; color: var(--blue); font: bold 19px "Segoe UI", Arial, sans-serif; }
+        .cover h1 { max-width: 550px; margin-bottom: 12px; font-size: 48px; }
+        .cover .subtitle { max-width: 470px; color: var(--muted); font-size: 19px; }
+        .cover-meta { margin-top: 58px; padding-top: 15px; border-top: 1px solid var(--line); color: var(--muted); font: 14px/1.8 "Segoe UI", Arial, sans-serif; }
+        .intro-callout { margin: 20px 0; padding: 15px 18px; border-left: 4px solid var(--blue); background: var(--pale); }
+        .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .tech-table { width: 100%; border-collapse: collapse; font: 14px/1.45 "Segoe UI", Arial, sans-serif; }
+        .tech-table th, .tech-table td { padding: 10px 11px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+        .tech-table th { width: 29%; background: var(--pale); }
+        .note { color: var(--muted); font-size: 13px; }
+        .capture-title { margin-bottom: 8px; }
+        .capture-frame {
+            display: block;
+            width: 100%;
+            height: 176mm;
+            border: 1px solid #9eabb4;
+            background: white;
+        }
+        .caption { margin: 8px 0 0; color: var(--muted); font-size: 12px; }
+        .refs li { margin-bottom: 11px; overflow-wrap: anywhere; }
+        .footer { position: absolute; right: 20mm; bottom: 12mm; left: 20mm; display: flex; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 7px; color: var(--muted); font: 11px "Segoe UI", Arial, sans-serif; }
+        @media screen and (max-width: 700px) {
+            .document { width: 100%; margin: 0; }
+            .sheet { min-height: 100vh; padding: 30px 24px 60px; margin-bottom: 10px; }
+            .cover h1 { font-size: 38px; }
+            .columns { grid-template-columns: 1fr; gap: 0; }
+            .capture-frame { height: 70vh; }
+            .footer { right: 24px; bottom: 18px; left: 24px; }
+        }
+        @media print {
+            @page { size: A4; margin: 0; }
+            body { background: white; }
+            .document { width: auto; margin: 0; }
+            .sheet { width: 210mm; height: 297mm; min-height: 0; margin: 0; box-shadow: none; }
+            .capture-frame { height: 176mm; }
+            a { color: inherit; text-decoration: none; }
+        }
+    </style>
+</head>
+<body>
+<main class="document">
+    <section class="sheet cover">
+        <div class="cover-mark">SD TRADERS &nbsp;|&nbsp; ELECTRIC TOYS</div>
+        <p class="eyebrow">Website project documentation</p>
+        <h1>SD Traders</h1>
+        <p class="subtitle">An introduction to the electric-toy storefront, its technologies, and its key website pages.</p>
+        <div class="cover-meta">
+            <div><strong>Project:</strong> SD Traders website</div>
+            <div><strong>Document:</strong> Project overview and page captures</div>
+            <div><strong>Date:</strong> September 2026</div>
+        </div>
+        <div class="footer"><span>SD Traders Project Documentation</span><span>Cover</span></div>
+    </section>
+
+    <section class="sheet">
+        <p class="eyebrow">01 &nbsp; Introduction</p>
+        <h2>Introduction to the Website</h2>
+        <p>SD Traders is a multi-page demonstration storefront for electric and remote-controlled toys. It introduces the store, presents a selection of products, and gives visitors basic ways to place an order, view a cart, and share feedback.</p>
+        <div class="intro-callout"><strong>Project purpose</strong><br>To provide a simple, navigable online catalog and demonstrate common storefront interactions using a lightweight web stack.</div>
+        <h3>What visitors can do</h3>
+        <ul>
+            <li>Explore the home page, store information, product catalog, and gallery.</li>
+            <li>Review listed products and prices, then add products to the cart or open an order form.</li>
+            <li>Submit a customer rating and feedback through the feedback page.</li>
+            <li>Browse contact and review information through the site navigation.</li>
+        </ul>
+        <h3>How the demonstration works</h3>
+        <p>The main pages are static HTML documents styled by a shared stylesheet. JavaScript provides front-end interactions, including order-form validation and browser-local cart data. A small Python development server serves the files and includes basic POST handling for PHP-style endpoints. The project also contains separate Python and C++ command-line calculator examples.</p>
+        <p class="note">This is a demonstration project: the included pages do not describe a production payment, shipping, inventory, or database system.</p>
+        <div class="footer"><span>SD Traders Project Documentation</span><span>Introduction</span></div>
+    </section>
+
+    <section class="sheet">
+        <p class="eyebrow">02 &nbsp; Implementation</p>
+        <h2>Technologies Used</h2>
+        <table class="tech-table">
+            <tbody>
+                <tr><th>HTML5</th><td>Page structure, navigation, catalog content, forms, and semantic sections.</td></tr>
+                <tr><th>CSS3</th><td>Shared visual styling, responsive layouts, and grid/flex-based page sections in <a href="../css/style.css">css/style.css</a>.</td></tr>
+                <tr><th>JavaScript</th><td>Client-side interactions and validation; cart data is stored in browser localStorage. Main scripts are in <a href="../js/script.js">js/script.js</a> and <a href="../js/cart.js">js/cart.js</a>.</td></tr>
+                <tr><th>Python 3</th><td><a href="../server.py">server.py</a> uses the standard-library HTTP server modules to serve project files and handle selected form POST requests.</td></tr>
+                <tr><th>C++</th><td><a href="../tools/toy_discount.cpp">tools/toy_discount.cpp</a> demonstrates a tiered toy-order discount calculation.</td></tr>
+                <tr><th>Python utility</th><td><a href="../tools/toy_calculator.py">tools/toy_calculator.py</a> is a separate command-line toy cost calculator.</td></tr>
+            </tbody>
+        </table>
+        <h3>Key project files</h3>
+        <p>The three page captures below are the home page (<a href="../index.html">index.html</a>), catalog (<a href="../products.html">products.html</a>), and order form (<a href="../order.html">order.html</a>). Their shared styles and client-side behavior are maintained in the CSS and JavaScript files listed above.</p>
+        <p class="note">The site can be served locally by running <code>python server.py</code> from the project folder, then opening the local address printed by the server.</p>
+        <div class="footer"><span>SD Traders Project Documentation</span><span>Technologies</span></div>
+    </section>
+
+    <section class="sheet">
+        <p class="eyebrow">03 &nbsp; Website Screenshots</p>
+        <h2 class="capture-title">Home Page</h2>
+        <iframe class="capture-frame" src="../index.html" title="SD Traders home page capture"></iframe>
+        <p class="caption">Figure 1. Home page: store identity, introductory banner, and featured toy categories.</p>
+        <div class="footer"><span>SD Traders Project Documentation</span><span>Screenshot 1 of 3</span></div>
+    </section>
+
+    <section class="sheet">
+        <p class="eyebrow">03 &nbsp; Website Screenshots</p>
+        <h2 class="capture-title">Product Catalog</h2>
+        <iframe class="capture-frame" src="../products.html" title="SD Traders product catalog capture"></iframe>
+        <p class="caption">Figure 2. Product catalog: sample toy listings, prices, and cart/order actions.</p>
+        <div class="footer"><span>SD Traders Project Documentation</span><span>Screenshot 2 of 3</span></div>
+    </section>
+
+    <section class="sheet">
+        <p class="eyebrow">03 &nbsp; Website Screenshots</p>
+        <h2 class="capture-title">Order Form</h2>
+        <iframe class="capture-frame" src="../order.html" title="SD Traders order form capture"></iframe>
+        <p class="caption">Figure 3. Order form: customer details, product selection, quantity, and submit action.</p>
+        <div class="footer"><span>SD Traders Project Documentation</span><span>Screenshot 3 of 3</span></div>
+    </section>
+
+    <section class="sheet">
+        <p class="eyebrow">04 &nbsp; Sources</p>
+        <h2>References and Bibliography</h2>
+        <p>The project itself is the primary reference for the descriptions and page captures in this document. The following official resources provide background on the technologies used.</p>
+        <ol class="refs">
+            <li>SD Traders project source files: <a href="../index.html">home page</a>, <a href="../products.html">products page</a>, <a href="../order.html">order page</a>, <a href="../css/style.css">stylesheet</a>, <a href="../js/script.js">JavaScript</a>, and <a href="../server.py">development server</a>.</li>
+            <li>MDN Web Docs. “HTML: HyperText Markup Language.” <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">https://developer.mozilla.org/en-US/docs/Web/HTML</a>.</li>
+            <li>MDN Web Docs. “CSS: Cascading Style Sheets.” <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">https://developer.mozilla.org/en-US/docs/Web/CSS</a>.</li>
+            <li>MDN Web Docs. “JavaScript.” <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">https://developer.mozilla.org/en-US/docs/Web/JavaScript</a>.</li>
+            <li>Python Software Foundation. “http.server — HTTP servers.” <a href="https://docs.python.org/3/library/http.server.html">https://docs.python.org/3/library/http.server.html</a>.</li>
+            <li>GNU Project. “GCC, the GNU Compiler Collection.” <a href="https://gcc.gnu.org/">https://gcc.gnu.org/</a>.</li>
+        </ol>
+        <p class="note">Online references accessed September 2026. The page captures are embedded from the local project and require the project server when viewed in a browser.</p>
+        <div class="footer"><span>SD Traders Project Documentation</span><span>References</span></div>
+    </section>
+</main>
+</body>
+</html>
